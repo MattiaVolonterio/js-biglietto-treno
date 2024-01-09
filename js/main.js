@@ -17,7 +17,7 @@ if (isNaN(pathLength)) {
 // Calcolo il prezzo base del biglietto senza sconti
 const priceKm = 0.21;
 const ticketPrice = pathLength * priceKm;
-const roundedPrice = Math.round(ticketPrice * 100) / 100;
+const roundedPrice = ticketPrice.toFixed(2);
 console.log(ticketPrice, roundedPrice);
 
 // Chiedo all'utente la sua età
@@ -37,9 +37,7 @@ if (!error) {
     console.log("Lo sconto è: " + discount);
     //   Applico lo sconto
     const discountedPrice = ticketPrice - discount;
-    const discountedPriceRounded = Math.round(
-      (discountedPrice * 100) / 100
-    ).toFixed(2);
+    const discountedPriceRounded = discountedPrice.toFixed(2);
     console.log(discountedPrice, discountedPriceRounded);
     //   Stampo il prezzo scontato
     ticketCost.innerText = `Il prezzo del biglietto è: ${discountedPriceRounded}€`;
@@ -48,10 +46,11 @@ if (!error) {
     const discount = (ticketPrice * 40) / 100;
     console.log("Lo sconto è: " + discount);
     //   Applico lo sconto
-    const discountedPrice = parseFloat((ticketPrice - discount).toFixed(2));
-    console.log(discountedPrice);
+    const discountedPrice = ticketPrice - discount;
+    const discountedPriceRounded = discountedPrice.toFixed(2);
+    console.log(discountedPrice, discountedPriceRounded);
     //   Stampo il prezzo scontato
-    ticketCost.innerText = `Il prezzo del biglietto è: ${discountedPrice}€`;
+    ticketCost.innerText = `Il prezzo del biglietto è: ${discountedPriceRounded}€`;
   } else {
     ticketCost.innerText = `Il prezzo del biglietto è: ${roundedPrice}€`;
   }
