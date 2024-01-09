@@ -10,7 +10,7 @@ const pathLength = parseFloat(
 );
 console.log("La lunghezza del percorso è: " + pathLength);
 
-if (isNaN(pathLength)) {
+if (isNaN(pathLength) || pathLength <= 0) {
   error = true;
 }
 
@@ -24,7 +24,7 @@ console.log(ticketPrice, roundedPrice);
 const userAge = parseInt(prompt("Inserire l'età: ").trim());
 console.log("L'età dell'utente è: " + userAge);
 
-if (isNaN(userAge)) {
+if (isNaN(userAge) || userAge <= 0) {
   error = true;
 }
 
